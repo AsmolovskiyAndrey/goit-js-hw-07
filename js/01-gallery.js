@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items.js';
 const mainGallery = document.querySelector('.gallery');
 const galleryItemsMarkup = createGalleryItems(galleryItems);
 
-mainGallery.insertAdjacentHTML('beforeend', galleryItemsMarkup);
+mainGallery.innerHTML = galleryItemsMarkup;
 
 mainGallery.addEventListener('click', makeBigImage);
 
@@ -28,6 +28,30 @@ function createGalleryItems(galleryItems) { //*создание разметки
     return markup;
 }
 
+let modalWindow = '';
+
 function makeBigImage(evt) {
     evt.preventDefault();
+    if (evt.target.nodeName !== "IMG") {
+    return;
+    }
+
+    modalWindow = basicLightbox.create(
+        `
+    <img src=${evt.target.dataset.source}>
+    `
+    );
+
+    modalWindow.show();
 }
+
+// document.querySelector('button.image').onclick = () => {
+
+// 	basicLightbox.create(`
+// 		<img width="1400" height="900" src="https://placehold.it/1400x900">
+// 	`).show()
+
+// }
+
+
+
