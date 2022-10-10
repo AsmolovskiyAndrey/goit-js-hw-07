@@ -44,13 +44,13 @@ function makeBigImage(evt) {
 
     modalWindow.show();
 
-    window.addEventListener('keydown', onEscCloseModal); //* вешаем слушателя на клавиши при открытой модалке
+    document.addEventListener('keydown', onEscCloseModal); //* вешаем слушателя на клавиши при открытой модалке
 }
 
 function onEscCloseModal(evt) { //* функция закрывает модалку при нажатии Escape
     if (evt.code === 'Escape') {
         modalWindow.close();
-        window.removeEventListener('keydown', onEscCloseModal); //* снимаем слушателя на клавиши при закрытии модалки
+        document.removeEventListener('keydown', onEscCloseModal); //* снимаем слушателя на клавиши при закрытии модалки
     }
 }
 
