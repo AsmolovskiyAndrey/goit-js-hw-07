@@ -20,6 +20,6 @@ function createGalleryItems(galleryItems) { //!создание разметки
     return markup;
 }
 
-function onClick(evt) {
+function onClick(evt) { //? отмена действий от браузера по умолчанию
     evt.preventDefault();
 }
